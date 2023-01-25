@@ -37,6 +37,7 @@ function makeGrid() {
     //gridSquare.textContent = `${i}`;
     container.appendChild(gridSquare);
   }
+  changeColorHover();
 }
 
 // Only works for 10 events. Once x = 0 it stops.
