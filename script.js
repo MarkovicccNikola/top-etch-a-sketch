@@ -12,7 +12,7 @@ buttonGridChange.addEventListener("click", () => {
 
 function makeGrid() {
   container.innerHTML = "";
-  let newSize = 512 / gridSize;
+  let newSize = 800 / gridSize;
   for (i = 0; i < gridSize * gridSize; i++) {
     const gridSquare = document.createElement("div");
     gridSquare.style.width = newSize + "px";
