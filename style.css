@@ -25,4 +25,10 @@ body {
   background-color: blue;
   width: 30px;
   height: 30px;
+  transition: 50ms;
+}
+
+#element:hover {
+  background-color: white;
+  cursor: pointer;
 }
