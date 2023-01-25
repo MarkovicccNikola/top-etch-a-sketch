@@ -1,7 +1,13 @@
 const container = document.querySelector("#container");
-const buttonGridChange = document.querySelector("button");
+const buttonGridChange = document.querySelector("#grid-button");
 const gridSquare = document.createElement("div");
+const rainbowButton = document.querySelector("#rainbow-button");
+const grayscaleButton = document.querySelector("#grayscale-button");
 let gridSize = null;
+let enableRainbow = false;
+let enableGrayscale = false;
+rainbowButton.addEventListener("click", rainbowColor);
+grayscaleButton.addEventListener("click", grayscaleColor);
 
 function makeInitialGrid() {
   let defaultSize = 800 / 4;
@@ -37,28 +43,7 @@ function makeGrid() {
     //gridSquare.textContent = `${i}`;
     container.appendChild(gridSquare);
   }
-  changeColorHover();
 }
-
-// Only works for 10 events. Once x = 0 it stops.
-/* container.addEventListener("mouseover", (event) => {
-  let x = 1;
-  event.target.style.backgroundColor = "rgb(0, 0, 0, " + (x -= 0.1) + ")";
-});
-*/
-
-/*
-function randomNumberGenerator(max) {
-  return Math.floor(Math.random() * max) + 1;
-}
-
-let x = randomNumberGenerator(255);
-let y = randomNumberGenerator(255);
-let z = randomNumberGenerator(255);
-container.addEventListener("mouseover", (event) => {
-  event.target.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
-});
-*/
 
 function randomNumberGenerator(max) {
   return Math.floor(Math.random() * max) + 1;
@@ -66,32 +51,40 @@ function randomNumberGenerator(max) {
 
 //THIS IS WORKING WOOOOOO!
 
-/*
-let array = document.querySelectorAll(".element");
-function changeColorHover() {
+function rainbowColor() {
+  enableGrayscale = false;
+  enableRainbow = true;
   let array = document.querySelectorAll(".element");
   for (i of array) {
     i.addEventListener("mouseover", function () {
-      let x = randomNumberGenerator(255);
-      let y = randomNumberGenerator(255);
-      let z = randomNumberGenerator(255);
-      this.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
-      this.style.transition = "500ms";
+      if (enableRainbow === true && enableGrayscale === false) {
+        let x = randomNumberGenerator(255);
+        let y = randomNumberGenerator(255);
+        let z = randomNumberGenerator(255);
+        this.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
+        this.style.transition = "500ms";
+      } else {
+        return;
+      }
     });
   }
 }
-changeColorHover();
-*/
 
 let array = document.querySelectorAll(".element");
-function changeColorHover() {
+
+function grayscaleColor() {
+  enableGrayscale = true;
+  enableRainbow = false;
   let array = document.querySelectorAll(".element");
   for (i of array) {
     let x = 0;
     i.addEventListener("mouseover", function () {
-      this.x;
-      this.style.backgroundColor = "rgb(0, 0, 0, " + (x += 0.1) + ")";
+      if (enableRainbow === false && enableGrayscale === true) {
+        this.x;
+        this.style.backgroundColor = "rgb(0, 0, 0, " + (x += 0.1) + ")";
+      } else {
+        return;
+      }
     });
   }
 }
-changeColorHover();

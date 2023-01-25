@@ -29,4 +29,5 @@ body {
 button {
   margin-bottom: 50px;
   background-color: rgb(200, 100, 200);
+  cursor: pointer;
 }
