@@ -63,6 +63,9 @@ function randomNumberGenerator(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 
+//THIS IS WORKING WOOOOOO!
+
+/*
 let array = document.querySelectorAll(".element");
 function changeColorHover() {
   let array = document.querySelectorAll(".element");
@@ -73,6 +76,20 @@ function changeColorHover() {
       let z = randomNumberGenerator(255);
       this.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
       this.style.transition = "500ms";
+    });
+  }
+}
+changeColorHover();
+*/
+
+let array = document.querySelectorAll(".element");
+function changeColorHover() {
+  let array = document.querySelectorAll(".element");
+  for (i of array) {
+    let x = 0;
+    i.addEventListener("mouseover", function () {
+      this.x;
+      this.style.backgroundColor = "rgb(0, 0, 0, " + (x += 0.1) + ")";
     });
   }
 }
