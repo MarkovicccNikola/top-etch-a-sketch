@@ -1,5 +1,6 @@
 const container = document.querySelector("#container");
 const buttonGridChange = document.querySelector("button");
+const gridSquare = document.createElement("div");
 let gridSize = null;
 
 function makeInitialGrid() {
@@ -8,7 +9,7 @@ function makeInitialGrid() {
     const gridSquare = document.createElement("div");
     gridSquare.style.width = defaultSize + "px";
     gridSquare.style.height = defaultSize + "px";
-    gridSquare.setAttribute("id", "element");
+    gridSquare.setAttribute("class", "element");
     container.appendChild(gridSquare);
   }
 }
@@ -32,8 +33,47 @@ function makeGrid() {
     const gridSquare = document.createElement("div");
     gridSquare.style.width = newSize + "px";
     gridSquare.style.height = newSize + "px";
-    gridSquare.setAttribute("id", "element");
+    gridSquare.setAttribute("class", "element");
     //gridSquare.textContent = `${i}`;
     container.appendChild(gridSquare);
   }
 }
+
+// Only works for 10 events. Once x = 0 it stops.
+/* container.addEventListener("mouseover", (event) => {
+  let x = 1;
+  event.target.style.backgroundColor = "rgb(0, 0, 0, " + (x -= 0.1) + ")";
+});
+*/
+
+/*
+function randomNumberGenerator(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+let x = randomNumberGenerator(255);
+let y = randomNumberGenerator(255);
+let z = randomNumberGenerator(255);
+container.addEventListener("mouseover", (event) => {
+  event.target.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
+});
+*/
+
+function randomNumberGenerator(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+let array = document.querySelectorAll(".element");
+function changeColorHover() {
+  let array = document.querySelectorAll(".element");
+  for (i of array) {
+    i.addEventListener("mouseover", function () {
+      let x = randomNumberGenerator(255);
+      let y = randomNumberGenerator(255);
+      let z = randomNumberGenerator(255);
+      this.style.backgroundColor = `rgb(${x}, ${z}, ${y})`;
+      this.style.transition = "500ms";
+    });
+  }
+}
+changeColorHover();
