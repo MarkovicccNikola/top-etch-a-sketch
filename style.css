@@ -23,7 +23,7 @@ body {
 }
 
 .element {
-  border: black solid 1px;
+  border: solid rgb(168, 168, 168) 1px;
 }
 
 button {
