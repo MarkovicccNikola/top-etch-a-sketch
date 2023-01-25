@@ -6,13 +6,15 @@
 
 body {
   margin-top: 50px;
+  text-align: center;
 }
 
 #container {
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
-  width: 480px;
+  width: 500px;
+  max-height: 400px;
 
   margin-left: auto;
   margin-right: auto;
@@ -29,6 +31,10 @@ body {
 }
 
 #element:hover {
-  background-color: white;
+  background-color: rgba(0, 0, 255, 0.827);
   cursor: pointer;
+}
+
+button {
+  margin-bottom: 50px;
 }
